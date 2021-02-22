@@ -1,0 +1,15 @@
+version: "3.4"
+
+services:
+  backend:
+    build: ./backend/dev/.
+    volumes:
+      - ./backend:/app
+    ports:
+      - 3000:3000
+  sonarqube:
+    image: sonarqube:lts
+    volumes:
+      - ./sonar-plugins/.:/opt/sonarqube/extensions/plugins/.
+    ports:
+      - 9000:9000
