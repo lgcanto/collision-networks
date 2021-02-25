@@ -5,14 +5,15 @@
             [ring.middleware.defaults :refer :all]
             [clojure.pprint :as pp]
             [clojure.string :as str]
-            [clojure.data.json :as json])
+            [clojure.data.json :as json]
+            [backend.logic :as logic])
   (:gen-class))
 
 ; Simple Body Page
 (defn simple-body-page [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    "Hello World"})
+   :body    (logic/edge-to-map [1 2])})
 
 ; request-example
 (defn request-example [req]
